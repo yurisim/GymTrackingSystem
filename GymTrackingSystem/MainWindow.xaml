@@ -1,0 +1,56 @@
+﻿<Window x:Class="GymTrackingSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymTrackingSystem"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:components="clr-namespace:GymTrackingSystem.Components"
+
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+
+        mc:Ignorable="d"
+        Title="Gym Tracking System">
+    <Grid>
+        <Grid>
+            <TabControl Style="{StaticResource MaterialDesignNavigatilRailTabControl}">
+                <TabItem ToolTip="Register User"
+                         Header="{materialDesign:PackIcon Kind=Register, Size=35}"
+                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                    <components:RegisterUser></components:RegisterUser>
+                </TabItem>
+                <TabItem Header="{materialDesign:PackIcon Kind=Search, Size=35}"
+                         ToolTip="Contact Tracing Visits"
+                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                    <components:QueryActivity></components:QueryActivity>
+                </TabItem>
+                <TabItem Header="{materialDesign:PackIcon Kind=AccountSwitch, Size=35}"
+                         ToolTip="Contact Tracing Visits"
+                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                    <components:ContactTrace></components:ContactTrace>
+                </TabItem>
+                <TabItem Header="{materialDesign:PackIcon Kind=ChartBar, Size=35}"
+                         ToolTip="Metrics"
+                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                    <TextBlock>
+                        <Run Text="Under Construction" />
+                    </TextBlock>
+                </TabItem>
+                <TabItem Header="{materialDesign:PackIcon Kind=Settings, Size=35}"
+                         ToolTip="Settings/Help"
+                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                    <TextBlock>
+                        <Run Text="Under Construction" />
+                    </TextBlock>
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+    </Grid>
+</Window>
