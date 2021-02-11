@@ -16,7 +16,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
 
         mc:Ignorable="d"
-        Title="Gym Tracking System">
+        Title="Gym Tracking System" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid>
             <TabControl Style="{StaticResource MaterialDesignNavigatilRailTabControl}">
@@ -38,17 +38,26 @@
                 <TabItem Header="{materialDesign:PackIcon Kind=ChartBar, Size=35}"
                          ToolTip="Metrics"
                          Style="{StaticResource MaterialDesignNavigationRailTabItem}">
-                    <TextBlock>
+                    <TextBlock Margin="5">
                         <Run Text="Under Construction" />
                     </TextBlock>
                 </TabItem>
                 <TabItem Header="{materialDesign:PackIcon Kind=Settings, Size=35}"
                          ToolTip="Settings/Help"
                          Style="{StaticResource MaterialDesignNavigationRailTabItem}">
-                    <TextBlock>
+                    <TextBlock Margin="5">
                         <Run Text="Under Construction" />
                     </TextBlock>
                 </TabItem>
+            <TabItem Header="{materialDesign:PackIcon Kind=QuestionMark, Size=35}"
+                     ToolTip="Settings/Help"
+                     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <TextBlock Margin="5">
+                    <Run Text="Contact A1C Sim @ yura.sim@us.af.mil or @ 405 734 5462" />
+                    <LineBreak></LineBreak>
+                    <Run Text="Version 1.0"></Run>
+                </TextBlock>
+            </TabItem>
             </TabControl>
         </Grid>
 

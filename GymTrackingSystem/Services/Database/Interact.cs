@@ -143,6 +143,26 @@ namespace GymTrackingSystem.Services.Database
             return result;
         }
 
+        public static void RemoveVisit(long DoDID)
+        {
+            var closeVisit = new Visit();
+            
+            try
+            {
+                using var gymContext = new GymContext();
+
+                closeVisit = gymContext.Visits.First(visit => visit.User.Id == DoDID && visit.DateTimeOut == default);
+
+                closeVisit.DateTimeOut = DateTime.Now;
+
+                UpdateVisit(closeVisit);
+            }
+            catch
+            {
+                // The only possible error for this is a database connection error.
+                MessageBox.Show(Resources.CannotConnect);
+            }
+        }
 
         public static List<string> GetValidColors()
         {

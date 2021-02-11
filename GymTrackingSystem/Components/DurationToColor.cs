@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace GymTrackingSystem
+namespace GymTrackingSystem.Components
 {
  public class DurationToColor : IValueConverter
         {

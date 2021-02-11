@@ -31,7 +31,10 @@ namespace GymTrackingSystem.Components
             InitializeComponent();
 
             stkInput.IsEnabled = false;
+            txtScan.Focus();
             cboBadgeNumber.Text = "1".PadLeft(2,'0');
+
+            ConfigurePage();
         }
 
         private void ConfigurePage()
@@ -49,6 +52,7 @@ namespace GymTrackingSystem.Components
 
             btnAdd.IsDefault = false;
             btnSubmit.IsDefault = true;
+
             txtScan.Focus();
         }
 
@@ -127,6 +131,8 @@ namespace GymTrackingSystem.Components
 
             var badgeNumber = Convert.ToInt32(cboBadgeNumber.Text);
 
+            cboBadgeColor.Text = cboBadgeColor.Text.ToUpper();
+
             var newVisit = new Visit
             {
                 User = CurrentUser,
@@ -183,6 +189,9 @@ namespace GymTrackingSystem.Components
             stkScan.IsEnabled = true;
 
             txtScan.Focus();
+
+            btnAdd.IsDefault = false;
+            btnSubmit.IsDefault = true;
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
@@ -203,6 +212,15 @@ namespace GymTrackingSystem.Components
         private void cboBadgeColor_GotFocus(object sender, RoutedEventArgs e)
         {
             ((ComboBox)sender).ItemsSource = Interact.GetValidColors();
+        }
+
+        private void SignOut(object sender, RoutedEventArgs e)
+        {
+            var DoDID = Convert.ToInt64((sender as Button)?.Tag);
+
+            Interact.RemoveVisit(DoDID);
+
+            ConfigurePage();
         }
     }
 }
