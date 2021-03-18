@@ -10,9 +10,9 @@ namespace GymTrackingSystem
     {
         public MainWindow()
         {
-            InitializeComponent();
-
             Interact.EnsureDB();
+
+            InitializeComponent();
         }
     }
 }

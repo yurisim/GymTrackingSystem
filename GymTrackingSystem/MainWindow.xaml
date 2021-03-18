@@ -16,9 +16,8 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
 
         mc:Ignorable="d"
-        Title="Gym Tracking System" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="Gym Tracking System" SizeToContent="Manual" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
-        <Grid>
             <TabControl Style="{StaticResource MaterialDesignNavigatilRailTabControl}">
                 <TabItem ToolTip="Register User"
                          Header="{materialDesign:PackIcon Kind=Register, Size=35}"
@@ -26,7 +25,7 @@
                     <components:RegisterUser></components:RegisterUser>
                 </TabItem>
                 <TabItem Header="{materialDesign:PackIcon Kind=Search, Size=35}"
-                         ToolTip="Contact Tracing Visits"
+                         ToolTip="Search"
                          Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                     <components:QueryActivity></components:QueryActivity>
                 </TabItem>
@@ -59,7 +58,5 @@
                 </TextBlock>
             </TabItem>
             </TabControl>
-        </Grid>
-
     </Grid>
 </Window>

@@ -28,13 +28,12 @@ namespace GymTrackingSystem.Components
         /// </summary>
         public RegisterUser()
         {
+            //Interact.EnsureDB();
+
             InitializeComponent();
 
             stkInput.IsEnabled = false;
-            txtScan.Focus();
             cboBadgeNumber.Text = "1".PadLeft(2,'0');
-
-            ConfigurePage();
         }
 
         private void ConfigurePage()
@@ -43,8 +42,8 @@ namespace GymTrackingSystem.Components
             var activeSessions = Interact.GetActiveSessions();
 
             //// Setup Dashboard
-            barCapacity.Maximum = Capacity; 
-            barCapacity.Value = activeSessions.Count();
+            barCapacity.Maximum = Capacity;
+            barCapacity.Value = activeSessions.Length;
             lblProgress.Content = $"Capacity: {barCapacity.Value} / {barCapacity.Maximum}";
 
             // This will display the users on the DataGrid
@@ -92,9 +91,6 @@ namespace GymTrackingSystem.Components
                     var name = scanInput.Substring(35, 26).Trim().ToLower();
                     txtLastName.Text = name.First().ToString().ToUpper() + name.Substring(1);
 
-                    // Current Time, we store the "long time" in the DB for use, but display the "short time" for the user
-                    txtTime.Text = DateTime.Now.ToShortTimeString();
-
                     // Try to find a user with that DoDID
                     var checkUser = Interact.GetUserFromDoDID(CurrentUser.Id);
 
@@ -110,11 +106,8 @@ namespace GymTrackingSystem.Components
 
                         cboUnit.Text = checkUser.Unit;
                     }
-                    else
-                    {
-                        txtPhone.Focus();
-                    }
 
+                    txtPhone.Focus();
                     btnSubmit.IsDefault = false;
                     btnAdd.IsDefault = true;
                 }
@@ -149,8 +142,8 @@ namespace GymTrackingSystem.Components
             {
                 // TODO: Only update this data set if changes are made to the input fields
 
-                foundUser.LastName = txtLastName.Text;
-                foundUser.Unit = cboUnit.Text;
+                foundUser.LastName = txtLastName.Text.ToUpper();
+                foundUser.Unit = cboUnit.Text.ToUpper();
                 foundUser.Phone = txtPhone.Text;
 
                 Interact.UpdateUser(foundUser);
@@ -161,8 +154,8 @@ namespace GymTrackingSystem.Components
                 var newUser = new User
                 {
                     Id = CurrentUser.Id,
-                    LastName = txtLastName.Text,
-                    Unit = cboUnit.Text,
+                    LastName = txtLastName.Text.ToUpper(),
+                    Unit = cboUnit.Text.ToUpper(),
                     Phone = txtPhone.Text
                 };
 

@@ -13,6 +13,7 @@ namespace GymTrackingSystem.Components
         public QueryActivity()
         {
             InitializeComponent();
+            QueryData();
         }
 
         /// <summary>

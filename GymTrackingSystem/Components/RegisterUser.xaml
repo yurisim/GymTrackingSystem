@@ -49,19 +49,15 @@
                                         materialDesign:HintAssist.Hint="Phone"
                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                         Foreground="{DynamicResource MaterialDesignBody}"
-                                        VerticalAlignment="Center" PromptChar="#"
-                                        HorizontalAlignment="Stretch" TabIndex="3" />
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Stretch" TabIndex="3" IncludeLiteralsInValue="False" />
                     <ComboBox x:Name="cboUnit" materialDesign:HintAssist.Hint="Unit" IsEditable="True"
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                               Foreground="{DynamicResource MaterialDesignBody}"
-                              HorizontalAlignment="Stretch" Margin="5,10,5,10" TabIndex="4" GotFocus="cmbUnit_GotFocus"/>
-                    <TextBox x:Name="txtTime" materialDesign:HintAssist.Hint="Time" Margin="5"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             Foreground="{DynamicResource MaterialDesignBody}"
-                             VerticalAlignment="Center" IsReadOnly="True"
-                             HorizontalAlignment="Stretch" TabIndex="5" />
+                              HorizontalAlignment="Stretch" Margin="5,10,5,10" TabIndex="4" GotFocus="cmbUnit_GotFocus" />
 
-                    <Grid HorizontalAlignment="Stretch">
+
+                    <Grid HorizontalAlignment="Stretch" Visibility="Collapsed">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
@@ -89,7 +85,7 @@
         </GroupBox>
 
         <!--Current Users-->
-        <GroupBox Header="Current Users" Margin="5">
+        <GroupBox Header="Current Users" Margin="5" VerticalAlignment="Stretch">
             <StackPanel>
                 <Grid VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
@@ -110,11 +106,11 @@
                     </Button>
                 </Grid>
                 <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Visible"
-                              Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                              Height="{Binding ActualHeight, ElementName=stkInput, Mode=OneWay}">
+                              Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
                     <DataGrid x:Name="grdUsers" IsSynchronizedWithCurrentItem="True" IsReadOnly="True"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
+
                               VerticalContentAlignment="Center"
                               CanUserResizeColumns="False" Margin="5" HorizontalAlignment="Center">
                         <DataGrid.Columns>
@@ -127,26 +123,21 @@
                                 Header="Time (min)">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="Background" Value="{Binding Item3, Converter={StaticResource DurationToColor}}" />
+                                        <Setter Property="Background"
+                                                Value="{Binding Item3, Converter={StaticResource DurationToColor}}" />
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn
-                                Binding="{Binding Item6}"
-                                Header="Color" />
-                            <DataGridTextColumn
-                                Binding="{Binding Item7}"
-                                Header="#" />
                             <DataGridTextColumn
                                 Binding="{Binding Item4}"
                                 Header="Phone" />
                             <DataGridTextColumn
                                 Binding="{Binding Item5}"
                                 Header="Unit" />
-                            <DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Sign Out">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button ToolTip="Sign Out" Tag ="{Binding Item1}" Click="SignOut">
+                                        <Button Tag="{Binding Item1}" Click="SignOut" Width="15" Height="15">
                                             X
                                         </Button>
                                     </DataTemplate>

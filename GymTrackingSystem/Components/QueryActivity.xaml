@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
@@ -23,19 +22,19 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <DatePicker x:Name="DateBegin"
-                                    materialDesign:HintAssist.Hint="Begin Date"
-                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
-                                    Foreground="{DynamicResource MaterialDesignBody}" Margin="5,5,5,5" />
+                            materialDesign:HintAssist.Hint="Begin Date"
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                            Foreground="{DynamicResource MaterialDesignBody}" Margin="5,5,5,5" />
                 <DatePicker x:Name="DateEnd"
-                                    materialDesign:HintAssist.Hint="End Date"
-                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
-                                    Foreground="{DynamicResource MaterialDesignBody}"
-                                    Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" />
+                            materialDesign:HintAssist.Hint="End Date"
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                            Foreground="{DynamicResource MaterialDesignBody}"
+                            Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" />
                 <ListBox
-                            Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBox}"
-                            x:Name="lstDateRanges" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                            SelectionChanged="DateShortcut_Selection" HorizontalContentAlignment="Center"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5">
+                    Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBox}"
+                    x:Name="lstDateRanges" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                    SelectionChanged="DateShortcut_Selection" HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5">
                     <ListBoxItem Content="Today" />
                     <ListBoxItem Content="Yesterday" />
                     <ListBoxItem Content="Last 7 Days" />
@@ -43,8 +42,8 @@
                     <ListBoxItem Content="Custom" />
                 </ListBox>
                 <Button x:Name="btnSearch" Content="Search" Margin="5,5,5,5" Grid.Row="2" HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Grid.Column="0" Click="btnSearch_Click" Grid.ColumnSpan="2"/>
+                        VerticalAlignment="Center"
+                        Grid.Column="0" Click="btnSearch_Click" Grid.ColumnSpan="2" />
                 <Label x:Name="lblQueryDialog" Content="Select Mode to Query"
                        Foreground="{DynamicResource MaterialDesignBody}"
                        Margin="5" Grid.Row="3" Grid.ColumnSpan="2"
@@ -53,34 +52,36 @@
         </GroupBox>
         <GroupBox Header="Found Visits" Margin="5" VerticalAlignment="Top">
             <ScrollViewer x:Name="scrlVisits" CanContentScroll="True" VerticalScrollBarVisibility="Visible"
-                          Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <DataGrid x:Name="grdVisits" IsSynchronizedWithCurrentItem="True" IsReadOnly="True"
-                              AutoGenerateColumns="False"
-                              CanUserAddRows="False"
-                              CanUserResizeColumns="False" Margin="5" HorizontalAlignment="Center">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
-                                Binding="{Binding Item2}"
-                                Header="Last Name" />
-                            <DataGridTextColumn
-                                Binding="{Binding Item1}"
-                                Header="DoDID" />
-                            <DataGridTextColumn
-                                SortDirection="Descending"
-                                Binding="{Binding Item6}"
-                                Header="Date In" />
+                          Margin="5" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <DataGrid x:Name="grdVisits" IsSynchronizedWithCurrentItem="True" IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+
+                          VerticalContentAlignment="Center"
+                          CanUserResizeColumns="False" Margin="5" HorizontalAlignment="Center">
+                    <DataGrid.Columns>
                         <DataGridTextColumn
-                                Binding="{Binding Item3}"
-                                Header="Time (min)"/>
-                            <DataGridTextColumn
-                                Binding="{Binding Item4}"
-                                Header="Phone" />
-                            <DataGridTextColumn
-                                Binding="{Binding Item5}"
-                                Header="Unit" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </ScrollViewer>
+                            Binding="{Binding Item2}"
+                            Header="Last Name" />
+                        <DataGridTextColumn
+                            Binding="{Binding Item1}"
+                            Header="DoDID" />
+                        <DataGridTextColumn
+                            SortDirection="Descending"
+                            Binding="{Binding Item6}"
+                            Header="Date In" />
+                        <DataGridTextColumn
+                            Binding="{Binding Item3}"
+                            Header="Time (min)" />
+                        <DataGridTextColumn
+                            Binding="{Binding Item4}"
+                            Header="Phone" />
+                        <DataGridTextColumn
+                            Binding="{Binding Item5}"
+                            Header="Unit" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
         </GroupBox>
 
     </WrapPanel>

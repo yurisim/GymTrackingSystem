@@ -9,9 +9,14 @@ namespace GymTrackingSystem.Components
         {
             public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
             {
-                var input = (int) value;
+                if (value != null)
+                {
+                    var input = (int) value;
 
-                return input > 60 ? Brushes.Red : DependencyProperty.UnsetValue;
+                    return input > 60 ? Brushes.Red : DependencyProperty.UnsetValue;
+                }
+
+                return DependencyProperty.UnsetValue;
             }
 
             public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
