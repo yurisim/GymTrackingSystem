@@ -1,8 +1,8 @@
-﻿using System.Windows;
-using GymTrackingSystem.Services.Database;
-
-namespace GymTrackingSystem
+﻿namespace GymTrackingSystem
 {
+    using System.Windows;
+    using GymTrackingSystem.Services.Database;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace GymTrackingSystem.Services.Database
+﻿namespace GymTrackingSystem.Services.Database
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class User
     {
         /// <summary>

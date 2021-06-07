@@ -1,10 +1,10 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using GymTrackingSystem.Services.Database;
-using MaterialDesignThemes.Wpf;
-
-namespace GymTrackingSystem.Components
+﻿namespace GymTrackingSystem.Components
 {
+    using System.Windows;
+    using System.Windows.Controls;
+    using GymTrackingSystem.Services.Database;
+    using MaterialDesignThemes.Wpf;
+
     /// <summary>
     /// Interaction logic for ContactTrace.xaml
     /// </summary>

@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace GymTrackingSystem.Services.Database
+﻿namespace GymTrackingSystem.Services.Database
 {
+    using Microsoft.EntityFrameworkCore;
+
     public class GymContext : DbContext
     {
         public DbSet<User> Users { get; set; }

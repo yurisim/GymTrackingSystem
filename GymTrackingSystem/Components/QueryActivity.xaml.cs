@@ -1,10 +1,10 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using GymTrackingSystem.Services.Database;
-
-namespace GymTrackingSystem.Components
+﻿namespace GymTrackingSystem.Components
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using GymTrackingSystem.Services.Database;
+
     /// <summary>
     /// Interaction logic for QueryActivity.xaml
     /// </summary>

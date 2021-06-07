@@ -1,8 +1,11 @@
-﻿using System;
-using System.Linq;
-
-namespace GymTrackingSystem.Services
+﻿namespace GymTrackingSystem.Services
 {
+    using System;
+    using System.Linq;
+
+    /// <summary>
+    /// ghjhgj
+    /// </summary>
     public static class Process
     {
         /// <summary>
@@ -35,10 +38,10 @@ namespace GymTrackingSystem.Services
         /// <summary>
         ///     Converts a character into its integer equivalent.
         ///     Supports 0 -> 9 and A -> z such that
-        ///     A = 10 & Z = 35,  a = 36 and so forth
+        ///     A = 10 & Z = 35,  a = 36 and so forth.
         /// </summary>
-        /// <param name="charToConvert"></param>
-        /// <returns></returns>
+        /// <param name="charToConvert">Input Char.</param>
+        /// <returns>Returns an integer value of the char.</returns>
         private static int GetValue(char charToConvert)
         {
             return char.IsDigit(charToConvert)

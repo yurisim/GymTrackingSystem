@@ -1,7 +1,7 @@
-﻿using System.Windows;
-
-namespace GymTrackingSystem
+﻿namespace GymTrackingSystem
 {
+    using System.Windows;
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>

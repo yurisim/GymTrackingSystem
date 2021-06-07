@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace GymTrackingSystem.Services.Database
+﻿namespace GymTrackingSystem.Services.Database
 {
+    using System;
+
     public class Visit
     {
         /// <summary>
