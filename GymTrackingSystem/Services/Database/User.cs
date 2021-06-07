@@ -11,7 +11,7 @@
         /// </summary>
         [Key]
         public long Id { get; set; }
-        
+
         public string LastName { get; set; }
 
         public string Unit { get; set; }

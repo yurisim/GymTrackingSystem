@@ -29,7 +29,7 @@
             {
                 using var gymContext = new GymContext();
 
-                return gymContext.Visits.Where(visit => visit.User.Id == DoDID && visit.DateTimeOut != default) 
+                return gymContext.Visits.Where(visit => visit.User.Id == DoDID && visit.DateTimeOut != default)
                                  .Select(visit => new Tuple<double, string, int>(
                                           visit.Id,
                                           visit.DateTimeIn.ToString("g"),
@@ -81,8 +81,8 @@
 
                 // These are the active users
                 var activeVisits = gymContext.Visits.Where(visit =>
-                    visit.DateTimeIn >= dateBegin 
-                    && (visit.DateTimeOut == default ? DateTime.Now : visit.DateTimeOut) 
+                    visit.DateTimeIn >= dateBegin
+                    && (visit.DateTimeOut == default ? DateTime.Now : visit.DateTimeOut)
                     <= dateEnd);
 
                 var formattedVisits = (from visit in activeVisits
@@ -146,7 +146,7 @@
         public static void RemoveVisit(long DoDID)
         {
             var closeVisit = new Visit();
-            
+
             try
             {
                 using var gymContext = new GymContext();
@@ -239,10 +239,10 @@
                 var formattedVisits = (from visit in activeVisits
                         join user in gymContext.Users on visit.User.Id equals user.Id
                         select new Tuple<long, string, int, string, string, string, int>(
-                            user.Id, 
+                            user.Id,
                             user.LastName,
-                            Convert.ToInt32((DateTime.Now - visit.DateTimeIn).TotalMinutes), 
-                            user.Phone, 
+                            Convert.ToInt32((DateTime.Now - visit.DateTimeIn).TotalMinutes),
+                            user.Phone,
                             user.Unit,
                             visit.BadgeColor,
                             visit.BadgeNumber))
